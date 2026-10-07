@@ -1,45 +1,30 @@
-# QRLink — Link to QR Code Generator
+# 🔗 QRLink Generator
 
-A small website that takes a link as input, accepts **only valid link format**, and generates a QR code for it.
+Turn any valid URL into a QR code — right in your browser. 100% client-side: no server, no build step, no framework. Open the page and generate.
 
-![QRLink preview](preview.png)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
-## Try it
+## ✨ Features
+
+- 🔗 Paste any `http(s)` URL and get an instant QR code
+- ✅ Input validation before generating
+- 📴 Works fully offline after first load
+- 🚫 No backend, no API keys, no dependencies to install
+
+## 🛠️ How It Works
+
+Uses a bundled QR-code library rendered with plain JavaScript on a `<canvas>` — everything happens in the browser.
+
+## 🚀 Getting Started
 
 ```bash
-cd qrlink
-python3 -m http.server 8000
+git clone https://github.com/sapnasingh4852-source/qrlink-generator.git
+cd qrlink-generator
+# Just open index.html in a browser — that's it.
 ```
 
-Then open http://localhost:8000 — or just open `index.html` directly in a browser, since everything runs client-side.
+---
 
-## How it works
-
-1. Type or paste a URL into the input.
-2. The value is validated in the browser. Anything that isn't an `http://` or `https://` URL is rejected with an inline error and no QR code is produced.
-3. A valid link is rendered into a QR code on a `<canvas>`, which can be downloaded as a PNG.
-
-Validation lives in `index.html`:
-
-```javascript
-function isValidLink(value) {
-  try {
-    const url = new URL(value);
-    return url.protocol === 'http:' || url.protocol === 'https:';
-  } catch {
-    return false;
-  }
-}
-```
-
-## Files
-
-| File | Purpose |
-|---|---|
-| `index.html` | The whole site — markup, styling, validation and QR logic |
-| `qrcode.standalone.js` | Bundled [`qrcode`](https://www.npmjs.com/package/qrcode) library |
-
-## Notes
-
-- No build step, no framework, no network calls — the QR library is bundled locally so the page works offline.
-- Input is trimmed before validation, and the error clears as soon as you edit the field.
+Built by [Sapna Singh](https://github.com/sapnasingh4852-source).
